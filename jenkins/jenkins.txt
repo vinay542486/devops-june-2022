@@ -1,0 +1,21 @@
+Groovy script 
+ 
+Scripted pipeline 
+- Traditional way of defining pipeline job.
+- Most of the configuration we need to define manually.
+- All the configuration should be inside the node block. 
+	
+Declarative pipeline 
+- New way of defining pipeline job.
+- Most of the configuration are pre-defined.
+- All the configuration should be inside the pipeline block. 
+	
+
+example: 
+pipeline {
+
+}		
+
+Jenkinsfile 
+   This is a file which contains our pipeline groovy script which we will 
+   keep and refer from a SCM (git) inside our pipeline job.	
