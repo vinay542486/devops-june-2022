@@ -29,6 +29,7 @@ stage('BUILD') {
                     steps {
                         sh 'echo "This is a TESTING1 stage"'
                         sh 'sleep 5'
+                        sh 'hgyhfggjfj'
                     }
                 }
 
