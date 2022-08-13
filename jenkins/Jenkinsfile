@@ -3,18 +3,18 @@ pipeline {
     stages {
         stage('ALL') {
             parallel {
-                stage('BUILD') {
-                    agent any
-                    steps {
-                        sh '''
-                            #!/bin/bash 
-                            pwd 
-                            ls
-                            echo "This is a BUILD stage"
-                            sleep 5
-                        '''  
-                    }
-                }
+stage('BUILD') {
+    agent any
+    steps {
+        sh '''
+            #!/bin/bash 
+            pwd 
+            ls
+            echo "This is a BUILD stage"
+            sleep 5
+        '''  
+    }
+}
 
                 stage('DEPLOY') {
                     agent { label 'slave1' } 
