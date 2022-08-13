@@ -19,3 +19,10 @@ pipeline {
 Jenkinsfile 
    This is a file which contains our pipeline groovy script which we will 
    keep and refer from a SCM (git) inside our pipeline job.	
+
+
+Assignment: Install blueocean plugin for pipeline 
+		- Blue Ocean 
+		- Web for Blue ocean 
+		- common API 
+		- Dashboard for Blue Ocean	
