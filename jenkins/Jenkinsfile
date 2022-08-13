@@ -20,21 +20,25 @@ pipeline {
                 sh 'sleep 5'
             }
         }
-        stage('TESTING1') {
-            agent { label 'slave2' } 
-            steps {
-                sh 'echo "This is a TESTING1 stage"'
-                sh 'sleep 5'
-            }
-        }
-        stage('TESTING2') {
-            agent { label 'master' } 
-            steps {
-                sh '''
-                    echo "This is a TESTING2 stage"
-                    sleep 5
-                '''
-            }
-        }
+        stage('TESTING') {
+            parallel {
+                stage('TESTING1') {
+                    agent { label 'slave2' } 
+                    steps {
+                        sh 'echo "This is a TESTING1 stage"'
+                        sh 'sleep 5'
+                    }
+                }
+                stage('TESTING2') {
+                    agent { label 'master' } 
+                    steps {
+                        sh '''
+                            echo "This is a TESTING2 stage"
+                            sleep 5
+                        '''
+                    }
+                }
+            }    
+        }    
     }
 }
