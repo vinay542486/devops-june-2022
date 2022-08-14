@@ -65,4 +65,16 @@ Environment variable
 		environment {
 			NAME = value
 		}
-	
+	- environment variables can be accessed suing env keyword 
+		env.NAME
+
+Parameters 
+	- parameters cab be declared only at pipeline level.
+		parameters {
+		     string(name: 'BRANCH', description: 'Enter the branch to build', defaultValue: 'main')
+
+		}
+
+	- Parameters can be accessed suing 'params' keyword 
+		params.NAME
+

@@ -4,30 +4,37 @@ pipeline {
     parameters {
         string(name: 'BRANCH', description: 'Enter the branch to build', defaultValue: 'main')
         string(name: 'GIT_REPO', description: 'Enter the repo url', defaultValue: 'https://github.com/jaintpharsha/devops-june-2022.git')
+        choice(name: 'STAGE', choices: ['build','deploy'], description: 'Stages to build')
     }
 
     stages {
         stage('Build') {
             agent any
             steps {
-                git branch: params.BRANCH, url: params.GIT_REPO
-                sh '''
-                    #!/bin/bash 
-                    pwd 
-                    ls
-                    echo "This is a BUILD stage"
-                    sleep 5
-                '''  
+                if(params.STAGE == 'build')
+                {
+                    git branch: params.BRANCH, url: params.GIT_REPO
+                    sh '''
+                        #!/bin/bash 
+                        pwd 
+                        ls
+                        echo "This is a BUILD stage"
+                        sleep 5
+                    ''' 
+                }     
             }
         }
 
         stage('DEPLOY') {
             agent { label 'slave1' } 
             steps {
-                echo "This is a DEPLOY stage"
-                sh 'sleep 5'
-                echo "${params.BRANCH}"
-                echo "${params.GIT_REPO}"
+                if(params.STAGE == 'deploy')
+                {
+                    echo "This is a DEPLOY stage"
+                    sh 'sleep 5'
+                    echo "${params.BRANCH}"
+                    echo "${params.GIT_REPO}"
+                }    
             }
         }
     }
