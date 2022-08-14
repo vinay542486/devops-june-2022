@@ -59,3 +59,10 @@ How to run a job parallel
 	Pipeline 
 	- By default pipeline job runs concurrently.
 	- To run stages parallel we need to define the stages inside parallel block.
+
+Environment variable 
+	- env variables cab be declared both at pipeline and stage level.
+		environment {
+			NAME = value
+		}
+	
