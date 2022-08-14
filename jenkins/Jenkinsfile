@@ -3,14 +3,16 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh '''
-                    #!/bin/bash 
-                    pwd 
-                    ls
-                    echo "This is a BUILD stage"
-                    sleep 5
-                    exit 1
-                '''  
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    sh '''
+                        #!/bin/bash 
+                        pwd 
+                        ls
+                        echo "This is a BUILD stage"
+                        sleep 5
+                        exit 1
+                    ''' 
+                }     
             }
         }
 
