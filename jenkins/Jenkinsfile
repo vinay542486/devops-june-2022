@@ -13,7 +13,7 @@ pipeline {
                 BUILD_ENV = 'only_for_build_stage'
             }
             steps {
-                git branch: $BRANCH, url: $GIT_REPO
+                git branch: ${env.BRANCH}, url: ${env.GIT_REPO}
                 sh '''
                     #!/bin/bash 
                     pwd 
