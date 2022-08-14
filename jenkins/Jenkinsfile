@@ -39,7 +39,9 @@ pipeline {
                         sh 'sleep 5'
                         echo "${params.BRANCH}"
                         echo "${params.GIT_REPO}"
-                    } 
+                    } else {
+                        echo "Skipping DEPLOY stage ....."
+                    }
                 }       
             }
         }
