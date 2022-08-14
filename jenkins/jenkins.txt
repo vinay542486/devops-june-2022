@@ -77,3 +77,7 @@ Parameters
 	- Parameters can be accessed suing 'params' keyword 
 		params.NAME
 
+Continue the jenkins pipeline even if the stage fails
+	- To handle the exception 
+		catch the error 
+		
