@@ -80,4 +80,6 @@ Parameters
 Continue the jenkins pipeline even if the stage fails
 	- To handle the exception 
 		catch the error 
-		
+		example: catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+			 
+			 }		
