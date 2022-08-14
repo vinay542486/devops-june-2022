@@ -1,8 +1,5 @@
 pipeline {
-    parameters {
-        string(name: 'AGENT', description: 'Enter the agent to run')
-    }
-    agent { label params.AGENT }
+    agent { label('master && slave1') }
     stages {
         stage('Build') {
             steps {
